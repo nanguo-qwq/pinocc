@@ -26,27 +26,38 @@ use num_bigint::BigUint;
 use num_traits::Num;
 use Pinocchio::zk::qap::equation_parser::EquationParser;
 use Pinocchio::zk::qap::gate::Gate;
+use Pinocchio::zk::qap::term::Term::{Out, TmpVar};
 
 fn main() {
-    // Step 1: 初始化PrimeField
     println!("Initializing PrimeField and CRS...");
     let p_hex = "1a0111ea397fe69a4b1ba7b6434bacd764774b84f38512bf6730d2a0f6b0f6241eabfffeb153ffffb9feffffffffaaab";
     let p = BigUint::from_str_radix(p_hex, 16).unwrap(); // 使用BLS12-381的素数p
     let f = PrimeField::new(&p);
-
     // 创建Prover实例需要的参数
     let expr = "(x * x * x) + x + 5 == 35";
+    /*
     let input = "3";
     let expr2 = expr.replace("x",input);
     println!("{}", expr2);
     let eq = EquationParser::parse(&f, expr).unwrap();
     let gates = &Gate::build(&f, &eq);
-    let witness_map: HashMap<Term, PrimeFieldElem> = HashMap::new();
+    */
+    let eq = EquationParser::parse(&f, expr).unwrap();
+    let witness_map = {
+        HashMap::<Term, PrimeFieldElem>::from([
+            (Term::One, f.elem(&1u8)),
+            (Term::var("x"), f.elem(&3u8)),
+            (TmpVar(1), f.elem(&9u8)),
+            (TmpVar(2), f.elem(&27u8)),
+            (TmpVar(3), f.elem(&8u8)),
+            (TmpVar(4), f.elem(&35u8)),
+            (Out, eq.rhs),
+        ])
+    };
 
     let p = Prover::new(&f, expr, &witness_map);
     let crs = CRS::new(&f, &p);
 
-    // Step 2: 创建证明者（Prover）实例，并生成一个证明
     println!("Creating Prover and generating proof...");
     let proof = p.prove(&crs);
 
