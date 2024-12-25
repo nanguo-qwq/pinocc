@@ -1,7 +1,6 @@
 use Pinocchio::{
     building_block::{
         field::{
-            prime_field::PrimeField,
             prime_field_elem::PrimeFieldElem,
         },
         curves::{
@@ -16,10 +15,8 @@ use Pinocchio::{
         },
         pinocchio::{
             crs::CRS,
-            proof::Proof,
             prover::Prover,
             verifier::Verifier,
-            witness::Witness,
         }
 
     }
