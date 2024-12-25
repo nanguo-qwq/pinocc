@@ -44,10 +44,8 @@ fn main() {
     let p = Prover::new(&f, expr, &witness_map);
     let crs = CRS::new(&f, &p);
 
-    //println!("Creating Prover and generating proof");
     let proof = p.prove(&crs);
 
-    //println!("Verifying proof");
     let verifier = Verifier::new();
     let witness_io = p.witness.io();
     let is_valid = verifier.verify(&proof, &crs, &witness_io);
