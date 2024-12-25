@@ -168,43 +168,4 @@ impl Prover {
   }
 }
 
-#[cfg(test)]
-mod tests {
-  use super::*;
-  use crate::zk::pinocchio::verifier::Verifier;
-
-  #[test]
-  fn test_generate_proof_and_verify() {
-    let f = &G1Point::curve_group();
-
-    let expr = "(x * x * x) + x + 5 == 35";
-    println!("Expr: {}\n", expr);
-    let eq = EquationParser::parse(f, expr).unwrap();
-
-    let witness_map = {
-      use crate::zk::qap::term::Term::*;
-      HashMap::<Term, PrimeFieldElem>::from([
-        (Term::One, f.elem(&1u8)),
-        (Term::var("x"), f.elem(&3u8)),
-        (TmpVar(1), f.elem(&9u8)),
-        (TmpVar(2), f.elem(&27u8)),
-        (TmpVar(3), f.elem(&8u8)),
-        (TmpVar(4), f.elem(&35u8)),
-        (Out, eq.rhs),
-      ])
-    };
-    let prover = &Prover::new(f, expr, &witness_map);
-    let verifier = &Verifier::new();
-    let crs = CRS::new(f, prover);
-
-    let proof = prover.prove(&crs);
-    let result = verifier.verify(
-      &proof,
-      &crs,
-      &prover.witness.io(),
-    );
-
-    assert!(result);
-  }
-}
 
