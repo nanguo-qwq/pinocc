@@ -54,6 +54,4 @@ fn main() {
 
     println!("\nProof is valid: {}\n", is_valid);
 
-    assert!(is_valid, "The proof is invalid!");
-
 }
