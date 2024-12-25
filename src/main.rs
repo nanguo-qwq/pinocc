@@ -3,12 +3,16 @@ use Pinocchio::{
         field::{
             prime_field::PrimeField,
             prime_field_elem::PrimeFieldElem,
+        },
+        curves::{
+            bls12_381::g1_point::G1Point,
         }
-
     },
     zk::{
         qap::{
             term::Term,
+            term::Term::{Out, TmpVar},
+            equation_parser::EquationParser,
         },
         pinocchio::{
             crs::CRS,
@@ -21,9 +25,6 @@ use Pinocchio::{
     }
 };
 use std::collections::HashMap;
-use Pinocchio::building_block::curves::bls12_381::g1_point::G1Point;
-use Pinocchio::zk::qap::equation_parser::EquationParser;
-use Pinocchio::zk::qap::term::Term::{Out, TmpVar};
 
 fn main() {
 
@@ -46,10 +47,10 @@ fn main() {
     let p = Prover::new(&f, expr, &witness_map);
     let crs = CRS::new(&f, &p);
 
-    println!("Creating Prover and generating proof...");
+    //println!("Creating Prover and generating proof");
     let proof = p.prove(&crs);
 
-    println!("Verifying proof...");
+    //println!("Verifying proof");
     let verifier = Verifier::new();
     let witness_io = p.witness.io();
     let is_valid = verifier.verify(&proof, &crs, &witness_io);

@@ -1,5 +1,3 @@
-// Implementation of protocol 2 described on page 5 in https://eprint.iacr.org/2013/279.pdf
-
 use crate::{
   building_block::{
     curves::bls12_381::{
@@ -94,7 +92,7 @@ impl Prover {
   }
 
   pub fn prove(&self, crs: &CRS) -> Proof {
-    println!("--> Generating proof...");
+    //println!("Generating proof");
     let witness_mid = &self.witness.mid();
 
     let (ek, vk) = (&crs.ek, &crs.vk);

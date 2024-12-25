@@ -73,24 +73,24 @@ impl Pairing {
   }
 
   pub fn weil(&self, p1: &G1Point, p2: &G2Point) -> GTPoint {
-    println!("Started Weil pairing");
-    println!("Running Miller loop G1-G2...");
+    //println!("Started Weil pairing");
+    //println!("Running Miller loop G1-G2");
 
     let num = self.calc_g1_g2(p1, p2);
-    println!("Running Miller loop G2-G1...");
+    //println!("Running Miller loop G2-G1");
     let deno = self.calc_g2_g1(p2, p1);
     let e = num * deno.inv();
     GTPoint::new(&e)
   }
 
   pub fn tate(&self, p1: &G1Point, p2: &G2Point) -> GTPoint {
-    println!("Started Tate pairing");
-    println!("Running Miller loop G1-G2...");
+    //println!("Started Tate pairing");
+    //println!("Running Miller loop G1-G2");
 
     let intmed = self.calc_g1_g2(&p1, &p2);
 
     // apply final exponentiation
-    println!("Applying final exponentiation...");
+    //println!("Applying final exponentiation");
     let one = BigUint::from(1u8);
     let q_to_12 = P::base_prime_field().order_ref().pow(P::embedding_degree());
     let r = P::subgroup().order();

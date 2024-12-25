@@ -1,5 +1,3 @@
-// Implementation of protocol 2 described on page 5 in https://eprint.iacr.org/2013/279.pdf
-
 use crate::{
   building_block::{
     field::sparse_vec::SparseVec,
@@ -34,7 +32,7 @@ impl Verifier {
     crs: &CRS,
     witness_io: &SparseVec,
   ) -> bool {
-    println!("--> Verifying Pinnochio proof...");
+    //println!("Verifying Pinnochio proof");
     let e = |a: &G1Point, b: &G2Point| self.pairing.tate(a, b);
 
     let (p, vk) = (&proof, &crs.vk); 
