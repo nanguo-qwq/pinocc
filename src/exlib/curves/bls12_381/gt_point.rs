@@ -1,4 +1,4 @@
-use crate::building_block::curves::bls12_381::fq12::Fq12;
+use crate::exlib::curves::bls12_381::fq12::Fq12;
 use std::ops::Mul;
 
 pub struct GTPoint {

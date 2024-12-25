@@ -1,5 +1,5 @@
 use Pinocchio::{
-    building_block::{
+    exlib::{
         field::{
             prime_field_elem::PrimeFieldElem,
         },

@@ -1,4 +1,4 @@
-use crate::building_block::{
+use crate::exlib::{
   field::{
     prime_field::PrimeField,
     prime_field_elem::PrimeFieldElem,
@@ -383,7 +383,7 @@ impl<'a> Sub<&Polynomial> for Polynomial {
 #[cfg(test)]
 mod tests {
   use super::*;
-  use crate::building_block::field::prime_field::PrimeField;
+  use crate::exlib::field::prime_field::PrimeField;
   use rand::Rng;
   use super::DivResult::{Quotient, QuotientRemainder};
 

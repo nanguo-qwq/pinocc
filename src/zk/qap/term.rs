@@ -1,5 +1,5 @@
 use crate::zk::qap::config::SignalId;
-use crate::building_block::field::prime_field_elem::PrimeFieldElem;
+use crate::exlib::field::prime_field_elem::PrimeFieldElem;
 
 #[derive(Clone, Hash, PartialEq, Eq)]
 pub enum Term {

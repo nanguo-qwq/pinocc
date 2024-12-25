@@ -1,7 +1,7 @@
 use crate::{
-  impl_scalar_mul_point,
-  impl_affine_add,
-  building_block::{
+    impl_scalar_mul_point,
+    impl_affine_add,
+    exlib::{
     field::{
       prime_field::PrimeField,
       prime_field_elem::PrimeFieldElem,

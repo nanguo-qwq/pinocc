@@ -1,5 +1,5 @@
 use crate::zk::qap::gates::arith_circuit::ArithCircuit;
-use crate::building_block::field::prime_field::PrimeField;
+use crate::exlib::field::prime_field::PrimeField;
 
 #[derive(Debug, PartialEq, Clone)]
 pub enum BoolCircuit {

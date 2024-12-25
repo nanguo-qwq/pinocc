@@ -7,7 +7,7 @@ use nom::{
   multi::{ many0, many1 },
   sequence::{ tuple, delimited, terminated },
 };
-use crate::building_block::field::{
+use crate::exlib::field::{
   prime_field::PrimeField,
   prime_field_elem::PrimeFieldElem,
 };

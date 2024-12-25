@@ -1,4 +1,4 @@
-use crate::building_block::{
+use crate::exlib::{
   field::{
     prime_field_elem::PrimeFieldElem,
     prime_field_elems::PrimeFieldElems,

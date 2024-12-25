@@ -1,10 +1,10 @@
 use num_traits::Zero;
 
-use crate::building_block::field::{
+use crate::exlib::field::{
   prime_field::PrimeField,
   prime_field_elem::PrimeFieldElem,
 };
-use crate::building_block::{
+use crate::exlib::{
   field::{
     polynomial::Polynomial,
     sparse_vec::SparseVec,

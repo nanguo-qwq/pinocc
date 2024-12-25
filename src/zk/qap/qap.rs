@@ -1,6 +1,6 @@
 use std::ops::Mul;
 
-use crate::building_block::{
+use crate::exlib::{
   field::{
     prime_field::PrimeField,
     polynomial::{
@@ -221,7 +221,7 @@ impl QAP {
 mod tests {
   use super::*;
   use crate::{
-    building_block::field::prime_field::PrimeField,
+    exlib::field::prime_field::PrimeField,
     zk::qap::constraint::Constraint,
   };
 

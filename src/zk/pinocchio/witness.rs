@@ -1,4 +1,4 @@
-use crate::building_block::field::{
+use crate::exlib::field::{
   prime_field_elem::PrimeFieldElem,
   sparse_vec::SparseVec,
 };
@@ -31,7 +31,7 @@ impl Witness {
 #[cfg(test)]
 mod tests {
   use super::*;
-  use crate::building_block::curves::bls12_381::g1_point::G1Point;
+  use crate::exlib::curves::bls12_381::g1_point::G1Point;
 
   #[test]
   fn test_witness() {

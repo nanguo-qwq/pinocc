@@ -3,7 +3,7 @@ use std::{
   ops,
   ops::{Index, Deref},
 };
-use crate::building_block::field::prime_field_elem::PrimeFieldElem;
+use crate::exlib::field::prime_field_elem::PrimeFieldElem;
 
 #[derive(Clone)]
 pub struct PrimeFieldElems(pub Vec<PrimeFieldElem>);
@@ -177,7 +177,7 @@ impl_field_elems_times_field_elem!(PrimeFieldElem, &PrimeFieldElems);
 mod tests {
   use super::*;
   use std::sync::Arc;
-  use crate::building_block::curves::secp256k1::affine_point::AffinePoint;
+  use crate::exlib::curves::secp256k1::affine_point::AffinePoint;
 
   #[test]
   fn test_from() {

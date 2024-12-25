@@ -3,7 +3,7 @@ use std::{
   fmt,
   ops::{Add, Sub, Mul, Neg},
 };
-use crate::building_block::{
+use crate::exlib::{
   curves::bls12_381::{
     reduce::Reduce,
     fq1::Fq1,
@@ -152,7 +152,7 @@ impl_mul!(&Fq2, &Fq2);
 
 #[cfg(test)]
 mod tests {
-  use crate::building_block::curves::bls12_381::fq_test_helper::{
+  use crate::exlib::curves::bls12_381::fq_test_helper::{
     get_fq1_values,
     get_fq2_values,
   };

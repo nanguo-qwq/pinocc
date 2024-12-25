@@ -1,4 +1,4 @@
-use crate::building_block::curves::bls12_381::params::Params as P;
+use crate::exlib::curves::bls12_381::params::Params as P;
 use num_bigint::{
   BigUint,
   RandBigInt,

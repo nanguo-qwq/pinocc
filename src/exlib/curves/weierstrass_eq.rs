@@ -1,4 +1,4 @@
-use crate::building_block::field::prime_field_elem::PrimeFieldElem;
+use crate::exlib::field::prime_field_elem::PrimeFieldElem;
 
 // Y^2 + a_1XY + a_3Y = X^3 + a_2X^2 + a_4X + a_6
 #[derive(Debug, Clone)]

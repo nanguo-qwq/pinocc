@@ -1,4 +1,4 @@
-use crate::building_block::field::prime_field_elem::PrimeFieldElem;
+use crate::exlib::field::prime_field_elem::PrimeFieldElem;
 
 #[derive(Debug, PartialEq, Clone)]
 pub enum ArithCircuit {

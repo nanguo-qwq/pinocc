@@ -1,4 +1,4 @@
-use crate::building_block::curves::bls12_381::{
+use crate::exlib::curves::bls12_381::{
   fq1::Fq1,
   fq2::Fq2,
   fq6::Fq6,

@@ -1,7 +1,7 @@
 use crate::{
   impl_affine_add,
   impl_scalar_mul_point,
-  building_block::{
+  exlib::{
     field::prime_field::PrimeField,
     curves::{
       bls12_381::{

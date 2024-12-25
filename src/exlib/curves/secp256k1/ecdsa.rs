@@ -1,4 +1,4 @@
-use crate::building_block::{
+use crate::exlib::{
   curves::{
     secp256k1::affine_point::AffinePoint,
     rational_point::RationalPoint,

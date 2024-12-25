@@ -3,7 +3,7 @@ use std::{
   convert::From,
   ops::{Add, Sub, Mul, Neg},
 };
-use crate::building_block::{
+use crate::exlib::{
   curves::bls12_381::{
     reduce::Reduce,
     fq2::Fq2,
@@ -173,7 +173,7 @@ impl_mul!(&Fq6, &Fq6);
 #[cfg(test)]
 mod tests {
   use super::*;
-  use crate::building_block::curves::bls12_381::fq_test_helper::get_fq2_values;
+  use crate::exlib::curves::bls12_381::fq_test_helper::get_fq2_values;
 
   fn to_strs(x: &Fq6) -> [String; 6] {
     [

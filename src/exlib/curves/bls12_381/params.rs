@@ -1,4 +1,4 @@
-use crate::building_block::field::prime_field::PrimeField;
+use crate::exlib::field::prime_field::PrimeField;
 use num_bigint::BigUint;
 use std::sync::Arc;
 use once_cell::sync::Lazy;

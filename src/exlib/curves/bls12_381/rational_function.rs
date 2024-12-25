@@ -1,4 +1,4 @@
-use crate::building_block::{
+use crate::exlib::{
   curves::bls12_381::{
     fq12::Fq12,
     g1_point::G1Point,

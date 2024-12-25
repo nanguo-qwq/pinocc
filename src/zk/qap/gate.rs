@@ -1,4 +1,4 @@
-use crate::building_block::field::prime_field::PrimeField;
+use crate::exlib::field::prime_field::PrimeField;
 use crate::zk::qap::{
   term::Term,
   equation_parser::{Equation, MathExpr},

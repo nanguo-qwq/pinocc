@@ -3,13 +3,13 @@ use std::{
   convert::From,
   ops::Mul,
 };
-use crate::building_block::field::{
+use crate::exlib::field::{
   prime_field::PrimeField,
   prime_field_elem::PrimeFieldElem,
 };
 use num_traits::Zero;
 use core::ops::{Index, IndexMut};
-use crate::building_block::to_biguint::ToBigUint;
+use crate::exlib::to_biguint::ToBigUint;
 
 #[derive(Clone)]
 pub struct SparseVec {
@@ -281,7 +281,7 @@ impl Mul<&SparseVec> for &SparseVec {
 #[cfg(test)]
 mod tests {
   use super::*;
-  use crate::building_block::field::prime_field::PrimeField;
+  use crate::exlib::field::prime_field::PrimeField;
 
   #[test]
   #[should_panic]

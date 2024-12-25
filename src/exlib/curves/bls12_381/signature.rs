@@ -1,4 +1,4 @@
-use crate::building_block::curves::bls12_381::{
+use crate::exlib::curves::bls12_381::{
   g1_point::G1Point,
   g2_point::G2Point,
   pairing::Pairing,

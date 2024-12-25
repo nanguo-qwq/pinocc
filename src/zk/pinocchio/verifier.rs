@@ -1,5 +1,5 @@
 use crate::{
-  building_block::{
+  exlib::{
     field::sparse_vec::SparseVec,
     curves::bls12_381::{
       g1_point::G1Point,
