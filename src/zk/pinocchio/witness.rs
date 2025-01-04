@@ -4,7 +4,7 @@ use crate::exlib::field::{
 };
 
 pub struct Witness {
-  sv: SparseVec,  // includes witness value for `1`
+  sv: SparseVec,
   pub mid_beg: PrimeFieldElem,
   pub end: PrimeFieldElem,
 }

@@ -49,11 +49,9 @@ impl CRS {
     f: &PrimeField,
     p: &Prover,
   ) -> Self {
-    //println!("Building CRS");
     let g1 = &G1Point::g();
     let g2 = &G2Point::g();
 
-    // generate random values 
     let r_v = &f.rand_elem(true);
     let r_w = &f.rand_elem(true);
     let alpha_v = &f.rand_elem(true);
@@ -62,14 +60,12 @@ impl CRS {
     let beta = &f.rand_elem(true);
     let gamma = &f.rand_elem(true);
 
-    // derive values from random values
     let r_y = &(r_v * r_w);
     let g1_v = &(g1 * r_v);
     let g1_w = &(g1 * r_w);
     let g2_w = &(g2 * r_w);
     let g1_y = &(g1 * r_y);
 
-    // build indices
     let (mid, io) = {
       let mid_beg: usize = (&p.witness.mid_beg.e).try_into().unwrap();
       let mid: Vec<usize> = {
@@ -81,8 +77,7 @@ impl CRS {
     };
     let s = &f.rand_elem(true);
 
-    // compute evaluation keys
-    //println!("Computing evaluation keys");
+    //evaluation keys
     let vk_mid: Vec<G1Point> = mid.iter().map(|i| { g1_v * &p.vi[*i].eval_at(s) }).collect();
     let g1_wk_mid: Vec<G1Point> = mid.iter().map(|i| { g1_w * &p.wi[*i].eval_at(s) }).collect();
     let g2_wk_mid: Vec<G2Point> = mid.iter().map(|i| { g2_w * &p.wi[*i].eval_at(s) }).collect();
@@ -103,8 +98,7 @@ impl CRS {
       }).collect()
     };
 
-    // compute verification keys
-    //println!("Computing verification keys");
+    //verification keys
     let one_g1 = g1 * f.elem(&1u8);
     let one_g2 = g2 * f.elem(&1u8);
     let alpha_v_pt = g2 * alpha_v;
