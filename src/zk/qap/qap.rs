@@ -162,9 +162,9 @@ impl QAP {
     let constraints_v_t = constraints.a.transpose();
     let constraints_w_t = constraints.b.transpose();
     let constraints_y_t = constraints.c.transpose();
-    //println!("- const v_t\n{:?}", &constraints_v_t);
-    //println!("- const w_t\n{:?}", &constraints_w_t);
-    //println!("- const y_t\n{:?}", &constraints_y_t);
+    println!("- const v_t\n{:?}", &constraints_v_t);
+    println!("- const w_t\n{:?}", &constraints_w_t);
+    println!("- const y_t\n{:?}", &constraints_y_t);
 
     // build polynomials for each wirness variable
     // e.g. vi[0] is a polynomial for the first witness variable
