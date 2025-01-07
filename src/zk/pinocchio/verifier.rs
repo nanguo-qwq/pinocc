@@ -42,6 +42,7 @@ impl Verifier {
       let lhs = e(&p.beta_vwy_mid_s, &vk.gamma);
       let rhs = e(&vwy_mid_s, &vk.beta_gamma);
       if lhs != rhs { return false; }
+      println!("successful beta check");
     }
 
     //v, w and y
@@ -59,6 +60,7 @@ impl Verifier {
       let lhs = e(&p.alpha_y_mid_s, &vk.one_g2);
       let rhs = e(&p.y_mid_s, &vk.alpha_y); 
       if lhs != rhs { return false; }
+      println!("successful alpha check");
     }
 
     //QAP
@@ -76,7 +78,7 @@ impl Verifier {
 
       let lhs = e(&v_s, &w_s);
       let rhs = e(&vk.t, &p.h_s) * e(&y_s, &vk.one_g2);
-
+      if lhs == rhs { println!("successful QAP check"); }
       lhs == rhs
     }
   }
